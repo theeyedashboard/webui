@@ -1,0 +1,61 @@
+.timeline {
+
+  .category
+  {
+    color: #ccc;
+  }
+
+  /* social groups */
+  ul
+  {
+    list-style-type: none;
+
+    /* data sources */
+    li
+    {
+
+      height: 80px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+
+      /* service */
+      p:nth-child(1)
+      {
+        color:#a22d5e;
+        font-weight: bold;
+        margin-top: 30px;
+
+      }
+
+      /* info */
+      p:nth-child(2)
+      {
+        /* label */
+        span:nth-child(1)
+        {
+          margin-top: 15px;
+          color:#555555;
+          white-space: nowrap;
+          display: block;
+          text-transform: uppercase;
+          font-size: 12px;
+          text-align: center;
+          font-weight: 500;
+        }
+        /* counter */
+        span:nth-child(2)
+        {
+          font-weight: 100;
+          color:black;
+          font-size: 32px;
+          display: block;
+          text-align: center;
+          line-height: 1;
+        }
+      }
+    } /* li */
+    li:last-child
+    {
+      border-bottom: 1px solid rgba(0,0,0,0);
+    }
+  } /* ul */
+} /* timeline */
