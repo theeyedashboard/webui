@@ -4,21 +4,21 @@
 # License::   Check license file
 
 Spine = require('spine')
-NavBarController = require('controllers/navbar_controller')
 
 class TimelineController extends Spine.Controller
+
+  tag:        'div'
+  className:  'container'
+
+  events:
+    'click .list-group-item': 'on_category_click'
 
   constructor: ->
     super
     # build fake datasources
     @datasources = @fake_datasources()
-
-    # create and add navbar
-    @navbar = new NavBarController
-    @append @navbar.view
-
-    # add self view
-    @append @view
+    @current_category = 'social'
+    @update()
 
   fake_datasources: =>
     social: [
@@ -43,7 +43,11 @@ class TimelineController extends Spine.Controller
       { service: "Website Monitor",   label: "Website uptime" }
     ]
 
-  view: =>
-    require("views/timeline/layout")({datasources: @fake_datasources().marketing})
+  update: =>
+    @html require("views/timeline")({datasources: @datasources[@current_category]})
+
+  on_category_click: (event) =>
+    @current_category = $(event.target).data('category')
+    @update()
 
 module.exports = TimelineController

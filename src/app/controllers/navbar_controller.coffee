@@ -9,8 +9,9 @@ class NavBarController extends Spine.Controller
 
   constructor: ->
     super
+    @update()
 
-  view: =>
+  update: =>
     @html require("views/navbar")({})
 
 module.exports = NavBarController

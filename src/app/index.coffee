@@ -1,11 +1,21 @@
 require('lib/setup')
 TimelineController = require('controllers/timeline_controller')
+NavBarController = require('controllers/navbar_controller')
 
 Spine = require('spine')
 
 class App extends Spine.Controller
   constructor: ->
     super
-    timeline_controller = new TimelineController({el: $("body")})
+
+    # create and add navbar
+    @navbar = new NavBarController()
+    @append @navbar
+
+    # add timeline screen
+    @timeline_controller = new TimelineController()
+    @append @timeline_controller
+
+    @append require("views/footer")({})
 
 module.exports = App
