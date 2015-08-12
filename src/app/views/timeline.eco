@@ -1,3 +1,24 @@
+<h1>Sources</h1>
+<!-- Single button -->
+<div class="btn-group pull-right time-select">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Les 7 derniers jours <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header">Hourly</li>
+    <li><a href="#">Last 7 days</a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Daily</li>
+    <li><a href="#">Last 31 days</a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Weekly</li>
+    <li><a href="#">Last 6 month</a></li>
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Monthly</li>
+    <li><a href="#">Last year</a></li>
+  </ul>
+</div>
+
 <!-- Begin page content -->
 <div class="timeline">
   <div class="col-sm-3 categories">
@@ -14,8 +35,9 @@
       <% end %>
     </div>
   </div>
+
   <div class="timeline col-sm-9">
-    <h2>Data sources</h2>
+    <!-- <h2>Data sources</h2> -->
     <ul>
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
