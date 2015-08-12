@@ -17,12 +17,16 @@ class TimelineController extends Spine.Controller
   constructor: ->
     super
     # build fake datasources
-    @datasources = DataSource.all()
+    @datasources      = DataSource.all()
     @current_category = 'social'
+    # refresh view with current datasource
     @update()
 
   update: =>
     @html require("views/timeline")({datasources: @datasources[@current_category]})
+    # set current category active 
+    $('.list-group-item').removeClass('active')
+    $("*[data-category='#{@current_category}']").addClass('active')
 
   on_category_click: (event) =>
     @current_category = $(event.target).data('category')
