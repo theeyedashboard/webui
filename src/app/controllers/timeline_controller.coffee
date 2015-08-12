@@ -4,6 +4,7 @@
 # License::   Check license file
 
 Spine = require('spine')
+DataSource = require('../models/datasource')
 
 class TimelineController extends Spine.Controller
 
@@ -16,32 +17,9 @@ class TimelineController extends Spine.Controller
   constructor: ->
     super
     # build fake datasources
-    @datasources = @fake_datasources()
+    @datasources = DataSource.all()
     @current_category = 'social'
     @update()
-
-  fake_datasources: =>
-    social: [
-      { service: "Facebook",    label: "Page subscription" }
-      { service: "Twitter",     label: "Followers" }
-      { service: "Instagram",   label: "Followers" }
-    ],
-    incomes: [
-      { service: "Paypal",      label: "Revenues" }
-    ],
-    marketing: [
-      { service: "Mailchimp",   label: "Mail opening" }
-      { service: "Mailchimp",   label: "Mail actions" }
-    ],
-    productivity: [
-
-    ],
-    health: [
-
-    ],
-    it: [
-      { service: "Website Monitor",   label: "Website uptime" }
-    ]
 
   update: =>
     @html require("views/timeline")({datasources: @datasources[@current_category]})
