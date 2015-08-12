@@ -16,6 +16,7 @@ class App extends Spine.Controller
     @timeline_controller = new TimelineController()
     @append @timeline_controller
 
+    # add footer
     @append require("views/footer")({})
 
 module.exports = App
