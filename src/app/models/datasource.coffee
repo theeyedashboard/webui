@@ -1,8 +1,5 @@
 class DataSource
 
-  constructor: (args) ->
-    # body...
-
   @all: =>
     social: [
       { service: "Facebook",    label: "Page subscription" }
