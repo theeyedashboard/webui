@@ -2,7 +2,7 @@
 <!-- Single button -->
 <div class="btn-group pull-right time-select">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Les 7 derniers jours <span class="caret"></span>
+    Last 7 days <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
     <li class="dropdown-header">Hourly</li>
@@ -36,8 +36,8 @@
     </div>
   </div>
 
-  <div class="timeline col-sm-9">
-    <!-- <h2>Data sources</h2> -->
+  <div class="timeline col-sm-9 datasources-list">
+    <h2>Data sources<span style="float:right">Last 7 days</span></h2>
     <ul>
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
