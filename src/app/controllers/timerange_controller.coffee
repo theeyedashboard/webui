@@ -15,14 +15,14 @@ class TimeRangeController extends Spine.Controller
 
   constructor: ->
     super
-    @current_time_range = 'last_7_days'
+    @time_range ||= 'last_7_days'
     # refresh view with current datasource
     @update()
 
   update: =>
-    @html require("views/timerange")(
-      time_range: @current_time_range,
-      label:      @label_for_timerange(@current_time_range)
+    @html require("views/_timerange")(
+      time_range: @time_range,
+      label:      @label_for_timerange(@time_range)
     )
 
   time_ranges: =>
@@ -43,8 +43,9 @@ class TimeRangeController extends Spine.Controller
 
   on_timerange_selector_click: (event) =>
     event.preventDefault();
-    @current_time_range = $(event.target).data('timerange')
-    console.log 'timerange change', @current_time_range
+    @time_range = $(event.target).data('timerange')
+    console.log 'timerange change', @time_range
     @update()
+    @trigger 'on_timerange_change', @time_range
 
 module.exports = TimeRangeController

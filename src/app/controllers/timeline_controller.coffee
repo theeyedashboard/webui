@@ -25,6 +25,7 @@ class TimelineController extends Spine.Controller
     @current_category = 'social'
     @time_range       = 'last_7_days'
     # refresh view with current datasource
+    # @append @timerange_controller
     @update()
 
   update: =>
@@ -33,11 +34,17 @@ class TimelineController extends Spine.Controller
       current_category: @current_category,
       time_range: @time_range
     )
-    @timerange_controller = new TimeRangeController({el: '#timerange-selector'})
+    @timerange_controller = new TimeRangeController({el: $('#timerange-selector'), time_range: @time_range})
+    @timerange_controller.bind('on_timerange_change', @on_timerange_change)
+    # $('#timerange-selector').html(@timerange_controller.el)
 
   on_category_click: (event) =>
     event.preventDefault();
     @current_category = $(event.target).data('category')
+    @update()
+
+  on_timerange_change: (time_range) =>
+    @time_range = time_range
     @update()
 
 
