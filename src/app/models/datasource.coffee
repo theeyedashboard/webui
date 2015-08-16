@@ -73,13 +73,6 @@ class DataSource
     category: 'it'
   ]
 
-  @time_ranges: =>
-    [
-      'last_7_days',
-      'last_31_days',
-      'last_12_month',
-      'last_3_years'
-    ]
   # return normalized categories with embedded datasources
   @normalized: =>
     @embedded_datasources = Category.all()

@@ -1,22 +1,7 @@
 <h1>Sources</h1>
 <!-- Single button -->
-<div class="btn-group pull-right time-select">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Last 7 days <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li class="dropdown-header">Hourly</li>
-    <li><a href="#">Last 7 days</a></li>
-    <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Daily</li>
-    <li><a href="#">Last 31 days</a></li>
-    <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Weekly</li>
-    <li><a href="#">Last 6 month</a></li>
-    <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Monthly</li>
-    <li><a href="#">Last year</a></li>
-  </ul>
+<div id="timerange-selector" class="btn-group pull-right">
+...
 </div>
 
 <!-- Begin page content -->

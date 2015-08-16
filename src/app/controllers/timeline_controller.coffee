@@ -5,6 +5,7 @@
 
 Spine = require('spine')
 DataSource = require('../models/datasource')
+TimeRangeController = require('controllers/timerange_controller')
 
 class TimelineController extends Spine.Controller
 
@@ -14,8 +15,11 @@ class TimelineController extends Spine.Controller
   events:
     'click .list-group-item': 'on_category_click'
 
+  on_load: =>
+    console.log 'loaded'
+
   constructor: ->
-    super
+    super()
     # build fake datasources
     @datasources      = DataSource.normalized()
     @current_category = 'social'
@@ -29,10 +33,12 @@ class TimelineController extends Spine.Controller
       current_category: @current_category,
       time_range: @time_range
     )
+    @timerange_controller = new TimeRangeController({el: '#timerange-selector'})
 
   on_category_click: (event) =>
     event.preventDefault();
     @current_category = $(event.target).data('category')
     @update()
+
 
 module.exports = TimelineController
