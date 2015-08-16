@@ -42,7 +42,15 @@
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
           <p class="col-sm-2 col-xs-6"><%= datasource.service %></p>
-          <p class="col-sm-2 col-xs-6"><span><%= datasource.label %></span><span>--</span></p>
+          <p class="col-sm-2 col-xs-6"><span><%= datasource.label %></span>
+            <span>
+              <% if datasource[@time_range]: %>
+                <%= datasource[@time_range].total %>
+              <% else: %>
+                --
+              <% end %>
+            </span>
+          </p>
           <div class="col-sm-8 hidden-xs text-right"><img src="images/graph-tmp.png" /></div>
         </li>
       <% end %>

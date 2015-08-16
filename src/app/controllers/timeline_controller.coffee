@@ -17,15 +17,17 @@ class TimelineController extends Spine.Controller
   constructor: ->
     super
     # build fake datasources
-    @datasources      = DataSource.all()
+    @datasources      = DataSource.normalized()
     @current_category = 'social'
+    @time_range       = 'last_7_days'
     # refresh view with current datasource
     @update()
 
   update: =>
     @html require("views/timeline")(
       datasources: @datasources,
-      current_category: @current_category
+      current_category: @current_category,
+      time_range: @time_range
     )
 
   on_category_click: (event) =>
