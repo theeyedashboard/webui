@@ -31,6 +31,7 @@ class TimelineController extends Spine.Controller
     )
 
   on_category_click: (event) =>
+    event.preventDefault();
     @current_category = $(event.target).data('category')
     @update()
 
