@@ -1,30 +1,6 @@
-class DataSource
+Category = require('./category')
 
-  @categories: =>
-    social:
-      fullName:   'Social'
-      glyphicon:  'glyphicon-user'
-    financial:
-      fullName:   'Financial'
-      glyphicon:  'glyphicon-piggy-bank'
-    ecommerce:
-      fullName:   'E-commerce'
-      glyphicon:  'glyphicon-shopping-cart'
-    marketing:
-      fullName:   'Marketing'
-      glyphicon:  'glyphicon-bullhorn'
-    productivity:
-      fullName:   'Productivity'
-      glyphicon:  'glyphicon-send'
-    it:
-      fullName:   'IT'
-      glyphicon:  'glyphicon-flash'
-    # health:
-    #   fullName:   'Health'
-    #   glyphicon:  'glyphicon-heart'
-    other:
-      fullName:   'Other'
-      glyphicon:  'glyphicon-flash'
+class DataSource
 
   @all: => [
     service:  "Facebook"
@@ -106,7 +82,7 @@ class DataSource
     ]
   # return normalized categories with embedded datasources
   @normalized: =>
-    @embedded_datasources = @categories()
+    @embedded_datasources = Category.all()
 
     # add sources field to embed data sources
     for name, category of @embedded_datasources
