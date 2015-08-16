@@ -7,49 +7,49 @@ class DataSource
     label:    "Page subscription"
     category: 'social'
     last_7_days:
-      total: 15
+      total: '15'
     last_31_days:
-      total: 65
+      total: '65'
     last_12_month:
-      total: 783
+      total: '783'
     last_3_years:
-      total: 2342
+      total: '2 342'
   ,
     service:  "Twitter"
     label:    "Followers"
     category: 'social'
     last_7_days:
-      total: 11
+      total: '11'
     last_31_days:
-      total: 56
+      total: '56'
     last_12_month:
-      total: 725
+      total: '725'
     last_3_years:
-      total: 1259
+      total: '1 259'
   ,
     service:  "Instagram"
     label:    "Followers"
     category: 'social'
     last_7_days:
-      total: 12
+      total: '12'
     last_31_days:
-      total: 57
+      total: '57'
     last_12_month:
-      total: 728
+      total: '728'
     last_3_years:
-      total: 1220
+      total: '1 220'
   ,
     service:  "Paypal"
     label:    "Revenues"
     category: 'financial'
     last_7_days:
-      total: 730
+      total: '730'
     last_31_days:
-      total: 3218
+      total: '3 218'
     last_12_month:
-      total: 39126
+      total: '39 126'
     last_3_years:
-      total: 39126
+      total: '39 126'
     unit: '€'
   ,
     service:  "Shopify"
