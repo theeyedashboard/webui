@@ -9,11 +9,18 @@ class DataSource
         { service: "Twitter",     label: "Followers" }
         { service: "Instagram",   label: "Followers" }
       ],
-    incomes:
-      fullName:   'Incomes'
+    financial:
+      fullName:   'Financial'
       glyphicon:  'glyphicon-piggy-bank'
       sources: [
         { service: "Paypal",      label: "Revenues" }
+      ],
+    ecommerce:
+      fullName:   'E-commerce'
+      glyphicon:  'glyphicon-shopping-cart'
+      sources: [
+        { service: "Shopify",      label: "Sales" }
+        { service: "Shopify",      label: "Revenue per user" }
       ],
     marketing:
       fullName:   'Marketing'
@@ -26,10 +33,10 @@ class DataSource
       fullName:   'Productivity'
       glyphicon:  'glyphicon-send'
       sources: []
-    health:
-      fullName:   'Health'
-      glyphicon:  'glyphicon-heart'
-      sources: []
+    # health:
+    #   fullName:   'Health'
+    #   glyphicon:  'glyphicon-heart'
+    #   sources: []
     it:
       fullName:   'IT'
       glyphicon:  'glyphicon-flash'
