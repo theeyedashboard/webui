@@ -1,8 +1,8 @@
 <h1>Sources</h1>
 <!-- Single button -->
-<div id="timerange-selector" class="btn-group pull-right">
+<!-- <div id="timerange-selector" class="btn-group pull-right">
 ...
-</div>
+</div> -->
 
 <!-- Begin page content -->
 <div class="timeline">
@@ -21,9 +21,9 @@
     </div>
   </div>
 
-  <div class="timeline col-sm-9 datasources-list">
-    <h2>Data sources<span style="float:right">Last 7 days</span></h2>
-    <ul>
+  <div class="col-sm-9">
+    <h2>Data sources<span style="float:right" id="timerange-selector">Last 7 days</span></h2>
+    <ul class="timeline datasources-list">
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
           <p class="col-sm-2 col-xs-6"><%= datasource.service %></p>

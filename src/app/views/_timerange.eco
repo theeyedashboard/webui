@@ -1,6 +1,10 @@
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= @label %> <span class="caret"></span>
-  </button>
+  </button> -->
+  <a data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+<%= @label %>
+  <span class="caret"></span>
+  </a>
   <ul class="dropdown-menu">
     <li class="dropdown-header">Hourly</li>
     <li><a href="#" data-timerange='last_7_days'>Last 7 days</a></li>
