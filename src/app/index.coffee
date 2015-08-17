@@ -1,6 +1,7 @@
 require('lib/setup')
 DatasourcesController = require('controllers/datasources_controller')
 NavBarController = require('controllers/navbar_controller')
+TimeRangeController = require('controllers/timerange_controller')
 
 Spine = require('spine')
 
@@ -12,10 +13,11 @@ class App extends Spine.Controller
     @navbar = new NavBarController()
     # create datasources screen
     @datasources_controller = new DatasourcesController()
+    @timerange_controller = new TimeRangeController()
 
-    @append @navbar, @datasources_controller
+    @append @navbar, @timerange_controller, @datasources_controller
     # add footer
-    @append require("views/footer")({})
+    # @append require("views/footer")({})
 
     @datasources_controller.index.update()
 

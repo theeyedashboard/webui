@@ -21,13 +21,14 @@ class Index extends Spine.Controller
 
   constructor: ->
     super()
+    Spine.bind('timerange:change', @on_timerange_change)
     # build fake datasources
     @datasources      = DataSource.normalized()
     @current_category = 'social'
     @time_range       = 'last_7_days'
     # refresh view with current datasource
-    # @append @timerange_controller
     @update()
+
 
   update: =>
     @html require("views/datasources.index")(
@@ -35,9 +36,6 @@ class Index extends Spine.Controller
       current_category: @current_category,
       time_range: @time_range
     )
-    @timerange_controller = new TimeRangeController({el: $('.timerange-selector'), time_range: @time_range})
-    @timerange_controller.bind('on_timerange_change', @on_timerange_change)
-    # $('#timerange-selector').html(@timerange_controller.el)
 
   on_category_click: (event) =>
     event.preventDefault();
@@ -46,6 +44,7 @@ class Index extends Spine.Controller
 
   on_timerange_change: (time_range) =>
     @time_range = time_range
+    console.log 'timerange change', @time_range
     @update()
 
   on_graph_click: (event) =>
@@ -55,6 +54,7 @@ class Index extends Spine.Controller
     setTimeout =>
       console.log 'timeout!'
       @navigate("/datasources",ds_id)
+      $(event.target).hide()
     ,100
 
 class Show extends Spine.Controller
@@ -64,11 +64,16 @@ class Show extends Spine.Controller
 
   constructor: ->
     super()
+    @time_range       = 'last_7_days'
     @update()
 
   update: =>
     @html require("views/datasources.show")(
     )
+
+  on_timerange_change: (time_range) =>
+    @time_range = time_range
+    @update()
 
 class DatasourcesController extends Spine.Stack
   className: 'root-view stack container'

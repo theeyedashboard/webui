@@ -8,7 +8,7 @@ Spine = require('spine')
 class TimeRangeController extends Spine.Controller
 
   tag:        'div'
-  id:         'timerange-selector'
+  className:  'timerange-selector container pull-right'
 
   events:
     'click .dropdown-menu a': 'on_timerange_selector_click'
@@ -46,6 +46,6 @@ class TimeRangeController extends Spine.Controller
     @time_range = $(event.target).data('timerange')
     console.log 'timerange change', @time_range
     @update()
-    @trigger 'on_timerange_change', @time_range
+    Spine.trigger('timerange:change', @time_range)
 
 module.exports = TimeRangeController
