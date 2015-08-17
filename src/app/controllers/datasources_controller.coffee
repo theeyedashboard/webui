@@ -7,13 +7,14 @@ Spine = require('spine')
 DataSource = require('../models/datasource')
 TimeRangeController = require('controllers/timerange_controller')
 
-class DatasourcesController extends Spine.Controller
+class Index extends Spine.Controller
 
   tag:        'div'
   className:  'container'
 
   events:
     'click .list-group-item': 'on_category_click'
+    'click img': 'on_graph_click'
 
   on_load: =>
     console.log 'loaded'
@@ -47,5 +48,28 @@ class DatasourcesController extends Spine.Controller
     @time_range = time_range
     @update()
 
+  on_graph_click: (event) =>
+    event.preventDefault();
+    # $(event.target).addClass('zoomed')
+
+class Show extends Spine.Controller
+
+  tag:        'div'
+  className:  'container'
+
+  constructor: ->
+    super()
+    @update()
+
+  update: =>
+    @html require("views/datasources.show")(
+    )
+
+class DatasourcesController extends Spine.Stack
+  className: 'main stack container'
+
+  controllers:
+    show: Show
+    index: Index
 
 module.exports = DatasourcesController
