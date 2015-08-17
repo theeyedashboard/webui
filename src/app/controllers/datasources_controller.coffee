@@ -10,7 +10,7 @@ TimeRangeController = require('controllers/timerange_controller')
 class Index extends Spine.Controller
 
   tag:        'div'
-  className:  'container'
+  className:  'container view'
 
   events:
     'click .list-group-item': 'on_category_click'
@@ -55,12 +55,12 @@ class Index extends Spine.Controller
     setTimeout =>
       console.log 'timeout!'
       @navigate("/datasources",ds_id)
-    ,20
+    ,100
 
 class Show extends Spine.Controller
 
   tag:        'div'
-  className:  'container'
+  className:  'container view'
 
   constructor: ->
     super()
@@ -71,7 +71,7 @@ class Show extends Spine.Controller
     )
 
 class DatasourcesController extends Spine.Stack
-  className: 'main stack container'
+  className: 'root-view stack container'
 
   controllers:
     show: Show
