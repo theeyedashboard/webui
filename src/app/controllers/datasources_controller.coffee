@@ -1,4 +1,4 @@
-# TimelineController controller
+# DatasourcesController controller
 # Author::    Cedric Villa (https://github.com/driket)
 # Copyright:: Check licence file
 # License::   Check license file
@@ -7,7 +7,7 @@ Spine = require('spine')
 DataSource = require('../models/datasource')
 TimeRangeController = require('controllers/timerange_controller')
 
-class TimelineController extends Spine.Controller
+class DatasourcesController extends Spine.Controller
 
   tag:        'div'
   className:  'container'
@@ -48,4 +48,4 @@ class TimelineController extends Spine.Controller
     @update()
 
 
-module.exports = TimelineController
+module.exports = DatasourcesController
