@@ -8,16 +8,17 @@ class App extends Spine.Controller
   constructor: ->
     super
 
-    # create and add navbar
+    # create navbar
     @navbar = new NavBarController()
-    @append @navbar
-
-    # add timeline screen
+    # create datasources screen
     @datasources_controller = new DatasourcesController()
-    @append @datasources_controller
-    @datasources_controller.index.update()
 
+    @append @navbar, @datasources_controller
     # add footer
     @append require("views/footer")({})
+
+    @datasources_controller.index.update()
+
+    Spine.Route.setup()
 
 module.exports = App
