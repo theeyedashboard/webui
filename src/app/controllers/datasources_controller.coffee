@@ -35,7 +35,7 @@ class Index extends Spine.Controller
       current_category: @current_category,
       time_range: @time_range
     )
-    @timerange_controller = new TimeRangeController({el: $('#timerange-selector'), time_range: @time_range})
+    @timerange_controller = new TimeRangeController({el: $('.timerange-selector'), time_range: @time_range})
     @timerange_controller.bind('on_timerange_change', @on_timerange_change)
     # $('#timerange-selector').html(@timerange_controller.el)
 

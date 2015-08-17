@@ -22,7 +22,7 @@
   </div>
 
   <div class="col-sm-9">
-    <h2>Data sources<span style="float:right" id="timerange-selector">Last 7 days</span></h2>
+    <h2>Data sources<span style="float:right" class="timerange-selector">Last 7 days</span></h2>
     <ul class="timeline datasources-list">
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
