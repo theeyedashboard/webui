@@ -10,7 +10,7 @@ TimeRangeController = require('controllers/timerange_controller')
 class Index extends Spine.Controller
 
   tag:        'div'
-  className:  'container view'
+  className:  'view'
 
   events:
     'click .list-group-item': 'on_category_click'
@@ -60,7 +60,7 @@ class Index extends Spine.Controller
 class Show extends Spine.Controller
 
   tag:        'div'
-  className:  'container view'
+  className:  'view'
 
   constructor: ->
     super()
