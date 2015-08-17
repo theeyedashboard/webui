@@ -19,6 +19,6 @@ class App extends Spine.Controller
 
     @datasources_controller.index.update()
 
-    Spine.Route.setup()
+    Spine.Route.setup({history: true, redirect: true})
 
 module.exports = App
