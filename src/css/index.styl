@@ -9,5 +9,12 @@ primary = #a22d5e
 @import './categories'
 @import './theme'
 
+// .stack > *:not(.active)
+//   display: none
+
+.stack > .active
+  opacity: 1
+  transition: all .2s ease-in-out
+
 .stack > *:not(.active)
-  display: none
+  opacity: 0
