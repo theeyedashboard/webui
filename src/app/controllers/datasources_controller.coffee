@@ -71,5 +71,7 @@ class DatasourcesController extends Spine.Stack
   controllers:
     show: Show
     index: Index
+    
+  default: 'index'
 
 module.exports = DatasourcesController

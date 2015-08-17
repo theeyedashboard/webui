@@ -15,7 +15,6 @@ class App extends Spine.Controller
     # add timeline screen
     @datasources_controller = new DatasourcesController()
     @append @datasources_controller
-    @datasources_controller.index.active()
     @datasources_controller.index.update()
 
     # add footer
