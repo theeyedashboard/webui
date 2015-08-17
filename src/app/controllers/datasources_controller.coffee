@@ -29,7 +29,7 @@ class DatasourcesController extends Spine.Controller
     @update()
 
   update: =>
-    @html require("views/timeline")(
+    @html require("views/datasources.index")(
       datasources: @datasources,
       current_category: @current_category,
       time_range: @time_range
