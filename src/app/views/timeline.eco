@@ -30,7 +30,7 @@
           <p class="col-sm-2 col-xs-6"><span><%= datasource.label %></span>
             <span>
               <% if datasource[@time_range]: %>
-                <%= datasource[@time_range].total %>&nbsp;<%= datasource.unit if datasource.unit %>
+                <%= datasource[@time_range].total %>&nbsp;<b class='datasource_unit'><%= datasource.unit if datasource.unit %></b>
               <% else: %>
                 --
               <% end %>

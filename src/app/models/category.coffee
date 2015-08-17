@@ -24,6 +24,6 @@ class Category
     #   glyphicon:  'glyphicon-heart'
     other:
       fullName:   'Other'
-      glyphicon:  'glyphicon-flash'
+      glyphicon:  'glyphicon-option-horizontal'
 
 module.exports = Category
