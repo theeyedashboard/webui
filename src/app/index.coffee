@@ -8,6 +8,7 @@ Spine = require('spine')
 class App extends Spine.Controller
   constructor: ->
     super
+    Spine.Route.setup()
 
     # create navbar
     @navbar = new NavBarController()
@@ -21,6 +22,5 @@ class App extends Spine.Controller
 
     @datasources_controller.index.update()
 
-    Spine.Route.setup({history: true, redirect: true})
 
 module.exports = App

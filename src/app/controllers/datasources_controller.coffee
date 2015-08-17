@@ -44,15 +44,13 @@ class Index extends Spine.Controller
 
   on_timerange_change: (time_range) =>
     @time_range = time_range
-    console.log 'timerange change', @time_range
     @update()
 
   on_graph_click: (event) =>
     event.preventDefault();
-    ds_id = $(event.target).data('id')
+    ds_id = $(event.target).parent().data('id')
     $(event.target).addClass('zoomed')
     setTimeout =>
-      console.log 'timeout!'
       @navigate("/datasources",ds_id)
       $(event.target).hide()
     ,100
