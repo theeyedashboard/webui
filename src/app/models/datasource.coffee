@@ -3,6 +3,7 @@ Category = require('./category')
 class DataSource
 
   @all: => [
+    id:       '1'
     service:  "Facebook"
     label:    "Page subscription"
     category: 'social'
@@ -15,6 +16,7 @@ class DataSource
     last_3_years:
       total: '2 342'
   ,
+    id:       '2'
     service:  "Twitter"
     label:    "Followers"
     category: 'social'
@@ -27,6 +29,7 @@ class DataSource
     last_3_years:
       total: '1 259'
   ,
+    id:       '3'
     service:  "Instagram"
     label:    "Followers"
     category: 'social'
@@ -39,6 +42,7 @@ class DataSource
     last_3_years:
       total: '1 220'
   ,
+    id:       '4'
     service:  "Paypal"
     label:    "Revenues"
     category: 'financial'
@@ -52,22 +56,27 @@ class DataSource
       total: '39 126'
     unit: '€'
   ,
+    id:       '5'
     service:  "Shopify"
     label:    "Sales"
     category: 'ecommerce'
   ,
+    id:       '6'
     service:  "Shopify"
     label:    "Revenue per user"
     category: 'ecommerce'
   ,
+    id:       '7'
     service:  "Mailchimp"
     label:    "Mail opening"
     category: 'marketing'
   ,
+    id:       '8'
     service:  "Mailchimp"
     label:    "Mail actions"
     category: 'marketing'
   ,
+    id:       '9'
     service:  "Website Monitor"
     label:    "Website uptime"
     category: 'it'

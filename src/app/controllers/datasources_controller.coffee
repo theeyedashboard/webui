@@ -14,7 +14,7 @@ class Index extends Spine.Controller
 
   events:
     'click .list-group-item': 'on_category_click'
-    'click img': 'on_graph_click'
+    'click .graph': 'on_graph_click'
 
   on_load: =>
     console.log 'loaded'
@@ -50,6 +50,8 @@ class Index extends Spine.Controller
 
   on_graph_click: (event) =>
     event.preventDefault();
+    ds_id = $(event.target).data('id')
+    @navigate("/datasources",ds_id)
     # $(event.target).addClass('zoomed')
 
 class Show extends Spine.Controller
