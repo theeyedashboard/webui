@@ -5,7 +5,6 @@
 </div> -->
 
 <!-- Begin page content -->
-<div class="timeline">
   <div class="col-sm-3 categories">
     <h2>Categories</h2>
     <div class="list-group">
@@ -21,7 +20,7 @@
     </div>
   </div>
 
-  <div class="col-sm-9">
+  <div class="col-sm-9 timeline">
     <h2>Data sources<span style="float:right">Last 7 days</span></h2>
     <ul class="timeline datasources-list">
       <% for datasource in @datasources[@current_category].sources: %>
@@ -41,4 +40,3 @@
       <% end %>
     </ul>
   </div>
-</div>
