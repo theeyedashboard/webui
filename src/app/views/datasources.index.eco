@@ -25,8 +25,8 @@
     <ul class="timeline datasources-list">
       <% for datasource in @datasources[@current_category].sources: %>
         <li class="row">
-          <p class="col-sm-2 col-xs-6"><%= datasource.service %></p>
-          <p class="col-sm-2 col-xs-6"><span><%= datasource.label %></span>
+          <p class="col-sm-1 col-xs-6"><%= datasource.service %></p>
+          <p class="col-sm-4 col-xs-6"><span><%= datasource.label %></span>
             <span>
               <% if datasource[@time_range]: %>
                 <%= datasource[@time_range].total %>&nbsp;<b class='datasource_unit'><%= datasource.unit if datasource.unit %></b>
@@ -35,7 +35,7 @@
               <% end %>
             </span>
           </p>
-          <div class="col-sm-8 hidden-xs text-right">
+          <div class="col-sm-7 hidden-xs text-right">
             <a href='#' class='graph' data-id='<%= datasource.id %>'>
               <div class='graph-view'>
               </div>
