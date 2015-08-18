@@ -5,7 +5,7 @@
   <!-- <%= @label %> -->
   <!-- <span class="caret"></span> -->
   </a>
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu pull-right">
     <li class="dropdown-header">Hourly</li>
     <li><a href="#" data-timerange='last_7_days'>Last 7 days</a></li>
     <li role="separator" class="divider"></li>
