@@ -1,4 +1,4 @@
-<h1>Show</h1>
+<h1><%= @datasource.service %> - <%= @datasource.label %></h1>
 <div class=''>
 <img src="images/graph-tmp.png" width="100%"/>
 </div>

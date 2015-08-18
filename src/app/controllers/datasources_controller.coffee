@@ -66,12 +66,22 @@ class Show extends Spine.Controller
 
   constructor: ->
     super()
-    @time_range       = 'last_7_days'
+    @time_range         = 'last_7_days'
+    @datasources        = DataSource.all()
+    @datasource_id      = '1'
     @update()
+    @active (params) =>
+      @set_active_source(params.id)
 
   update: =>
     @html require("views/datasources.show")(
+      timerange: @time_range,
+      datasource: DataSource.find_by_id(@datasource_id)
     )
+
+  set_active_source: (source_id) =>
+    @datasource_id = source_id
+    @update()
 
   on_timerange_change: (time_range) =>
     @time_range = time_range

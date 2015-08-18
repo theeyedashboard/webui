@@ -82,6 +82,11 @@ class DataSource
     category: 'it'
   ]
 
+  @find_by_id: (id) =>
+    for source in @all()
+      return source if source.id == id
+    return nil
+
   # return normalized categories with embedded datasources
   @normalized: =>
     @embedded_datasources = Category.all()
