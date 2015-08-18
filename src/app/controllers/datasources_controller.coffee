@@ -38,7 +38,7 @@ class Index extends Spine.Controller
       time_range: @time_range
     )
     setTimeout =>
-      @graphs_controller = new GraphsController()
+      @graphs_controller = new GraphsController({timerange: @time_range})
     ,1
 
 

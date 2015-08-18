@@ -7,9 +7,10 @@ Spine = require('spine')
 
 class GraphsController extends Spine.Controller
 
-  constructor: () ->
+  constructor: (options) ->
     super
-    @timerange = 'last_7_days'
+    console.log options
+    @timerange = options?['timerange'] || 'last_7_days'
     @set_timerange(@timerange)
 
   set_timerange: (timerange) =>
@@ -18,7 +19,19 @@ class GraphsController extends Spine.Controller
     @update()
 
   update: =>
-    date_start       = new Date().getTime() - 7*24*3600*1000
+
+    if @timerange == 'last_7_days'
+      timerange = 7*24*3600*1000
+    else if @timerange == 'last_31_days'
+      timerange = 31*24*3600*1000
+    else if @timerange == 'last_12_month'
+      timerange = 12*31*24*3600*1000
+    else if @timerange == 'last_3_years'
+      timerange = 3*365*24*3600*1000
+    else
+      timerange = 0
+
+    date_start       = new Date().getTime() - timerange
     date_end         = new Date().getTime()
     mode             = 'normal'
     graph_type       = 'line'
@@ -31,6 +44,8 @@ class GraphsController extends Spine.Controller
     else
       resolution = 'RESOLUTION_MONTH'
 
+    console.log 'day_counter:', day_counter
+    console.log 'resolution:', resolution
     graph_data       = []
     line_color  = "rgba(42, 100, 150, 0.4)"
     line_bw     = "rgba(164, 164, 164, 0.5)"
