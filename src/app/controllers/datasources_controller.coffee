@@ -66,6 +66,7 @@ class Show extends Spine.Controller
 
   constructor: ->
     super()
+    Spine.bind('timerange:change', @on_timerange_change)
     @time_range         = 'last_7_days'
     @datasources        = DataSource.all()
     @datasource_id      = '1'
@@ -75,7 +76,7 @@ class Show extends Spine.Controller
 
   update: =>
     @html require("views/datasources.show")(
-      timerange: @time_range,
+      time_range: @time_range,
       datasource: DataSource.find_by_id(@datasource_id)
     )
 

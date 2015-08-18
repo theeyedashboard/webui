@@ -1,4 +1,17 @@
-<h1><%= @datasource.service %> - <%= @datasource.label %></h1>
-<div class=''>
+<h1><span class="primary"><%= @datasource.service %></span> - <%= @datasource.label %></h1>
+<div class='row'>
+  <div class='col-sm-4'></div>
+  <div class='col-sm-4 text-center'>
+    <span class='data-label'><%= @datasource.label %></span><br />
+    <span class='data-value'>
+    <% if @datasource[@time_range]: %>
+      <%= @datasource[@time_range].total %>&nbsp;<b class='datasource_unit'><%= @datasource.unit if @datasource.unit %></b>
+    <% else: %>
+      --
+    <% end %>
+    </span>
+  </div>
+  <div class='col-sm-4'></div>
+</div>
 <img src="images/graph-tmp.png" width="100%"/>
 </div>
