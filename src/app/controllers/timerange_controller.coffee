@@ -8,7 +8,7 @@ Spine = require('spine')
 class TimeRangeController extends Spine.Controller
 
   tag:        'div'
-  className:  'timerange-selector container pull-right'
+  className:  'timerange-selector container'
 
   events:
     'click .dropdown-menu a': 'on_timerange_selector_click'
