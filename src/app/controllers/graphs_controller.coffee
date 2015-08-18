@@ -68,7 +68,7 @@ class GraphsController extends Spine.Controller
     if resolution == 'RESOLUTION_HOUR'
       day_axis = {
         mode: "time",
-        # tickFormatter: weekday,
+        tickFormatter: weekday,
         color: "rgba(0,0,0,0.05)",
         position: "top",
         axisLabel: "Weekday",
@@ -103,7 +103,7 @@ class GraphsController extends Spine.Controller
         hoverable: true
         clickable: true
         color: "#eee"
-        # markings: weekendAreas
+        markings: weekendAreas
       tooltip: true,
       tooltipOpts:
         content: "%x - %s: %y",

@@ -1,7 +1,7 @@
 dayOfWeek = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 lastDay = "";
 
-function weekday(val, axis) {
+weekday = function weekday(val, axis) {
 	day = dayOfWeek[new Date(val).getDay()];
 	if (day == lastDay){
 		return '';
@@ -11,3 +11,5 @@ function weekday(val, axis) {
 		return day;
 	}
 }
+
+module.exports.weekday = weekday

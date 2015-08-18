@@ -1,4 +1,4 @@
-function weekendAreas(axes) {
+weekendAreas = function weekendAreas(axes) {
 
 	var markings = [],
 		d = new Date(axes.xaxis.min);
@@ -22,3 +22,5 @@ function weekendAreas(axes) {
 
 	return markings;
 }
+
+module.exports.weekendAreas = weekendAreas;
