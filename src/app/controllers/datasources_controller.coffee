@@ -54,6 +54,10 @@ class Index extends Spine.Controller
       @navigate("/datasources",ds_id)
       $(event.target).hide()
     ,100
+    setTimeout =>
+      $(event.target).removeClass('zoomed')
+      $(event.target).show()
+    ,200
 
 class Show extends Spine.Controller
 
