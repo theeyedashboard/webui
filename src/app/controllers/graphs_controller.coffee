@@ -7,8 +7,14 @@ Spine = require('spine')
 
 class GraphsController extends Spine.Controller
 
-  constructor: ->
+  constructor: () ->
     super
+    @timerange = 'last_7_days'
+    @set_timerange(@timerange)
+
+  set_timerange: (timerange) =>
+    console.log 'timerange:', timerange
+    @timerange = timerange
     @update()
 
   update: =>
