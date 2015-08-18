@@ -53,15 +53,15 @@ class Index extends Spine.Controller
 
   on_graph_click: (event) =>
     event.preventDefault();
-    ds_id = $(event.target).parent().data('id')
-    $(event.target).addClass('zoomed')
+    ds_id = $(event.target).parent().parent().data('id')
+    $(event.target).parent().addClass('zoomed')
     setTimeout =>
       @navigate("/datasources",ds_id)
-      $(event.target).hide()
+      $(event.target).parent().hide()
     ,100
     setTimeout =>
-      $(event.target).removeClass('zoomed')
-      $(event.target).show()
+      $(event.target).parent().removeClass('zoomed')
+      $(event.target).parent().show()
     ,200
 
 class Show extends Spine.Controller
