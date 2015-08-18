@@ -35,7 +35,13 @@
               <% end %>
             </span>
           </p>
-          <div class="col-sm-8 hidden-xs text-right"><a href='#' class='graph' data-id='<%= datasource.id %>'><img src="images/graph-tmp.png" /></a></div>
+          <div class="col-sm-8 hidden-xs text-right">
+            <a href='#' class='graph' data-id='<%= datasource.id %>'>
+              <div class='graph-view'>
+              </div>
+              <!-- <img src="images/graph-tmp.png" /> -->
+            </a>
+          </div>
         </li>
       <% end %>
     </ul>

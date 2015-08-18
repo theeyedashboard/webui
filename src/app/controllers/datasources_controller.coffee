@@ -6,6 +6,7 @@
 Spine = require('spine')
 DataSource = require('../models/datasource')
 TimeRangeController = require('controllers/timerange_controller')
+GraphsController = require('controllers/graphs_controller')
 
 class Index extends Spine.Controller
 
@@ -36,6 +37,10 @@ class Index extends Spine.Controller
       current_category: @current_category,
       time_range: @time_range
     )
+    setTimeout =>
+      @graphs_controller = new GraphsController()
+    ,1
+
 
   on_category_click: (event) =>
     event.preventDefault();
