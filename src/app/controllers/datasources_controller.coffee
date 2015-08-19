@@ -85,7 +85,7 @@ class Show extends Spine.Controller
       datasource: DataSource.find_by_id(@datasource_id)
     )
     setTimeout =>
-      @graphs_controller = new GraphsController()
+      @graphs_controller = new GraphsController({timerange: @time_range})
     ,1
 
 
