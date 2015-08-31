@@ -80,6 +80,20 @@ class DataSource
     service:  "Website Monitor"
     label:    "Website uptime"
     category: 'it'
+  ,
+    id:       '10'
+    service:  "Wordpress"
+    label:    "Words count"
+    category: 'productivity'
+    last_7_days:
+      total: '2 253'
+    last_31_days:
+      total: '9 652'
+    last_12_month:
+      total: '12 472'
+    last_3_years:
+      total: '12 472'
+    unit: 'words'
   ]
 
   @find_by_id: (id) =>
