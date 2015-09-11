@@ -54,7 +54,7 @@ class GraphsController extends Spine.Controller
     bars_bw     = {fillColor: "rgba(211, 211, 211, 0.5)", barWidth: bar_width * 0.8}
     graph_data.push { data:[], color: line_color , bars: bars_color, shadowSize: 0}
 
-    $.getJSON('http://docker:8005/')
+    $.getJSON('/sampler')
 
       # if json failed
       .fail (jqXHR) =>
