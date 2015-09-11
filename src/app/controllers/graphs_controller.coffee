@@ -66,7 +66,44 @@ class GraphsController extends Spine.Controller
       .done (json, textStatus, jqXHR) =>
 
         $('.graph-view').each (index) =>
-          @render_graph(graph_data, $('.graph-view')[index] , graph_type, resolution, date_start, date_end)
+          graph_el = $('.graph-view')[index]
+          if $(graph_el).is(":visible")
+            graph_data = @json_to_graph(json, false, resolution)
+            @render_graph(graph_data, graph_el , graph_type, resolution, date_start, date_end)
+
+  json_to_graph: (json, derivative = false, resolution = 'RESOLUTION_HOUR') =>
+
+    samples       = json.samples
+
+    data          = []
+    for sample in samples
+      sample.date = sample.date.replace(/-/g,'/')
+      data.push [Date.parse(sample.date), sample.value - samples[0].value]
+
+    if resolution == 'RESOLUTION_HOUR'
+      bar_width = 1000 * 3600 * 0.5
+    else if resolution == 'RESOLUTION_DAY'
+      bar_width = 1000 * 3600 * 24
+    else if resolution == 'RESOLUTION_WEEK'
+      bar_width = 1000 * 3600 * 24 * 7
+    else if resolution == 'RESOLUTION_MONTH'
+      bar_width = 1000 * 3600 * 24 * 15
+
+    if derivative
+      line_color  = "rgba(42, 100, 150, 0.4)"
+      line_bw     = "rgba(164, 164, 164, 0.5)"
+      bars_color  = {fillColor: "rgba(42, 100, 150, 0.25)", barWidth: bar_width * 0.8}
+      bars_bw     = {fillColor: "rgba(211, 211, 211, 0.5)", barWidth: bar_width * 0.8}
+    else
+      line_color  = "rgba(42, 100, 150, 0.4)"
+      line_bw     = "rgba(164, 164, 164, 0.5)"
+      bars_color  = ''
+      bars_bw     = ''
+
+    graph_data = []
+    graph_data.push { label: 'value', data:data, color: line_color , bars: bars_color, shadowSize: 0,}
+
+    return graph_data
 
   # render graph from graph data
   # Params::
