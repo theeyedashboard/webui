@@ -68,7 +68,7 @@ class GraphsController extends Spine.Controller
         $('.graph-view').each (index) =>
           graph_el = $('.graph-view')[index]
           if $(graph_el).is(":visible")
-            graph_data = @json_to_graph(json, false, resolution)
+            graph_data = @json_to_graph(json, true, resolution)
             @render_graph(graph_data, graph_el , graph_type, resolution, date_start, date_end)
 
   json_to_graph: (json, derivative = false, resolution = 'RESOLUTION_HOUR') =>
@@ -76,9 +76,37 @@ class GraphsController extends Spine.Controller
     samples       = json.samples
 
     data          = []
-    for sample in samples
-      sample.date = sample.date.replace(/-/g,'/')
-      data.push [Date.parse(sample.date), sample.value - samples[0].value]
+
+    # show values in graph without derivative
+    if !derivative
+
+      for sample in samples
+        sample.date = sample.date.replace(/-/g,'/')
+        data.push [Date.parse(sample.date), sample.value - samples[0].value]
+
+    # show derivative function (differences between values)
+    else
+
+      old_value = 0
+      old_time  = 0
+
+      for sample in samples
+
+        if resolution == 'RESOLUTION_DAY'
+          time = Date.parse(sample.date.replace(/-/g,'/')) - (1000 * 3600 * 24)
+        else
+          time = Date.parse(sample.date.replace(/-/g,'/'))
+
+        if old_time == 0
+          elapsed_days = 1 * 3600 * 24 * 1000
+        else
+          elapsed_days = (time - old_time) / 3600 / 24 / 1000
+
+        elapsed_days = 1 if elapsed_days < 1
+        sample_time = time
+        data.push [sample_time, (sample.value - old_value) / elapsed_days]
+        old_value = sample.value
+        old_time  = time
 
     if resolution == 'RESOLUTION_HOUR'
       bar_width = 1000 * 3600 * 0.5
