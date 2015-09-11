@@ -54,8 +54,19 @@ class GraphsController extends Spine.Controller
     bars_bw     = {fillColor: "rgba(211, 211, 211, 0.5)", barWidth: bar_width * 0.8}
     graph_data.push { data:[], color: line_color , bars: bars_color, shadowSize: 0}
 
-    $('.graph-view').each (index) =>
-      @render_graph(graph_data, $('.graph-view')[index] , graph_type, resolution, date_start, date_end)
+    $.getJSON('http://docker:8005/')
+
+      # if json failed
+      .fail (jqXHR) =>
+
+        console.log 'Erreur Javascript: ', jqXHR
+        # $('.graph-view').spin(false)
+
+      # if json call is successful
+      .done (json, textStatus, jqXHR) =>
+
+        $('.graph-view').each (index) =>
+          @render_graph(graph_data, $('.graph-view')[index] , graph_type, resolution, date_start, date_end)
 
   # render graph from graph data
   # Params::
